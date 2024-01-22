@@ -34,18 +34,20 @@
 				<version>4.0.0</version>
 				<extensions>true</extensions>
 				<configuration>
-					<cloudhub2Deployment>
-						<uri>https://anypoint.mulesoft.com</uri>
-						<provider>MC</provider>
-						<environment>DEV</environment>
-						<target>Cloudhub-US-East-1</target>
-						<muleVersion>4.4.0</muleVersion>
-						<server>Repository</server>
-						<applicationName>auth-deploy</applicationName>
-						<replicas>1</replicas>
-						<vCores>0.1</vCores>
-					</cloudhub2Deployment>
-				</configuration>
+                    <cloudHubDeployment>
+                        <uri>https://anypoint.mulesoft.com</uri>
+                        <muleVersion>4.4.0</muleVersion>
+                        <connectedAppClientId>${ClientId}</connectedAppClientId>
+                        <connectedAppClientSecret>${ClientSecret}</connectedAppClientSecret>
+                        <connectedAppGrantType>client_credentials</connectedAppGrantType>
+                        <environment>DEV</environment>
+                        <applicationName>auth-deploy</applicationName>
+                        <workerType>MICRO</workerType>
+                        <workers>1</workers>
+                        <objectStoreV2>true</objectStoreV2>
+                    </cloudHubDeployment>
+                    <classifier>mule-application</classifier>
+                </configuration>
 			</plugin>
 		</plugins>
 	</build>
